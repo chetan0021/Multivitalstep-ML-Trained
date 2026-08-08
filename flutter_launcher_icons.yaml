@@ -1,0 +1,44 @@
+# ==============================================================================
+# Flutter Launcher Icons Configuration
+# ==============================================================================
+#
+# HOW TO CREATE THE TINTED ICON (assets/Logo3_datacollection.png):
+# ----------------------------------------------------------------
+# You need to create a tinted/desaturated version of the original Logo3.png
+# for the Data Collection app to visually distinguish it from the standard app.
+#
+# RECOMMENDED (Manual in image editor - GIMP, Figma, Photoshop, etc.):
+#   1. Open  assets/Logo3.png
+#   2. Apply Hue/Saturation desaturation (set Saturation to -80 or -100)
+#   3. Add a blue-teal tint overlay at 20-30% opacity using colour #00796B
+#      (this matches kcPrimaryColor in the app theme)
+#   4. Export/save as  assets/Logo3_datacollection.png
+#
+# ALTERNATIVE (Flutter ColorFiltered - render and screenshot):
+#   Wrap Image.asset('assets/Logo3.png') in a ColorFiltered widget:
+#     ColorFiltered(
+#       colorFilter: ColorFilter.matrix([
+#         0.2126, 0.7152, 0.0722, 0, 0,  // R → greyscale
+#         0.2126, 0.7152, 0.0722, 0, 0,  // G → greyscale
+#         0.2126, 0.7152, 0.0722, 0, 0,  // B → greyscale
+#         0, 0, 0, 1, 0,
+#       ]),
+#       child: Image.asset('assets/Logo3.png'),
+#     )
+#   Then screenshot the widget and save as assets/Logo3_datacollection.png.
+#
+# AFTER CREATING THE ICON:
+#   Run: flutter pub run flutter_launcher_icons
+#
+# NOTE: Until the tinted icon file is ready, the original Logo3.png is used
+# as a placeholder so icon generation does not fail.
+# ==============================================================================
+
+dev_dependencies:
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/Logo3_datacollection.png"
+  min_sdk_android: 21
