@@ -54,6 +54,9 @@ import 'package:vital_step/ui/views/sign_up_specialist/sign_up_specialist_view.d
 import 'package:vital_step/ui/views/startup/startup_view.dart' as _i3;
 import 'package:vital_step/ui/views/test_result/test_result_view.dart' as _i16;
 import 'package:vital_step/ui/views/test_taking/test_taking_view.dart' as _i15;
+import 'package:vital_step/ui/views/ble_scan/ble_scan_view.dart' as _i36;
+import 'package:vital_step/ui/views/wifi_scan/wifi_scan_view.dart' as _i37;
+import 'package:vital_step/ui/views/wifi_credentials/wifi_credentials_view.dart' as _i38;
 
 class Routes {
   static const homeView = '/home-view';
@@ -112,6 +115,12 @@ class Routes {
 
   static const patientEditView = '/patient-edit-view';
 
+  static const bleScanView = '/ble-scan-view';
+
+  static const wifiScanView = '/wifi-scan-view';
+
+  static const wifiCredentialsView = '/wifi-credentials-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -141,6 +150,9 @@ class Routes {
     patientSessionView,
     patientHistoryView,
     patientEditView,
+    bleScanView,
+    wifiScanView,
+    wifiCredentialsView,
   };
 }
 
@@ -257,6 +269,18 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.patientEditView,
       page: _i29.PatientEditView,
+    ),
+    _i1.RouteDef(
+      Routes.bleScanView,
+      page: _i36.BleScanView,
+    ),
+    _i1.RouteDef(
+      Routes.wifiScanView,
+      page: _i37.WifiScanView,
+    ),
+    _i1.RouteDef(
+      Routes.wifiCredentialsView,
+      page: _i38.WifiCredentialsView,
     ),
   ];
 
@@ -460,6 +484,27 @@ class StackedRouter extends _i1.RouterBase {
     _i29.PatientEditView: (data) {
       return _i30.MaterialPageRoute<dynamic>(
         builder: (context) => const _i29.PatientEditView(),
+        settings: data,
+      );
+    },
+    _i36.BleScanView: (data) {
+      return _i30.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i36.BleScanView(),
+        settings: data,
+      );
+    },
+    _i37.WifiScanView: (data) {
+      return _i30.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i37.WifiScanView(),
+        settings: data,
+      );
+    },
+    _i38.WifiCredentialsView: (data) {
+      final args = data.getArgs<WifiCredentialsViewArguments>(nullOk: false);
+      return _i30.MaterialPageRoute<dynamic>(
+        builder: (context) => _i38.WifiCredentialsView(
+            key: args.key,
+            ssid: args.ssid),
         settings: data,
       );
     },
@@ -729,6 +774,32 @@ class SignUpSpecialistViewArguments {
   @override
   int get hashCode {
     return key.hashCode ^ profile.hashCode;
+  }
+}
+
+class WifiCredentialsViewArguments {
+  const WifiCredentialsViewArguments({
+    this.key,
+    required this.ssid,
+  });
+
+  final _i30.Key? key;
+  final String ssid;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "ssid": "$ssid"}';
+  }
+
+  @override
+  bool operator ==(covariant WifiCredentialsViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key && other.ssid == ssid;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ ssid.hashCode;
   }
 }
 
@@ -1158,6 +1229,51 @@ extension NavigatorStateExtension on _i35.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.patientEditView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToBleScanView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.bleScanView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToWifiScanView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.wifiScanView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToWifiCredentialsView({
+    _i30.Key? key,
+    required String ssid,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo<dynamic>(Routes.wifiCredentialsView,
+        arguments: WifiCredentialsViewArguments(key: key, ssid: ssid),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

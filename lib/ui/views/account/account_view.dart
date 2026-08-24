@@ -52,6 +52,12 @@ class AccountView extends StackedView<AccountViewModel> {
                       onTap: () => NavigationService()
                           .navigateToDeviceView(showExistingDevices: true),
                     ),
+                    _buildSettingsItem(
+                      icon: Icons.wifi_outlined,
+                      title: "Device Wi-Fi Settings",
+                      onTap: () => NavigationService()
+                          .navigateToBleScanView(),
+                    ),
                   ]),
                   verticalSpaceMedium,
                   _buildSettingsGroup([

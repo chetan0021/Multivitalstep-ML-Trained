@@ -48,6 +48,10 @@ import 'package:vital_step/ui/views/patient_registration/patient_registration_vi
 import 'package:vital_step/ui/views/patient_session/patient_session_view.dart';
 import 'package:vital_step/ui/views/patient_history/patient_history_view.dart';
 import 'package:vital_step/ui/views/patient_edit/patient_edit_view.dart';
+import 'package:vital_step/services/ble_provisioning_service.dart';
+import 'package:vital_step/ui/views/ble_scan/ble_scan_view.dart';
+import 'package:vital_step/ui/views/wifi_scan/wifi_scan_view.dart';
+import 'package:vital_step/ui/views/wifi_credentials/wifi_credentials_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -81,6 +85,9 @@ import 'package:vital_step/ui/views/patient_edit/patient_edit_view.dart';
     MaterialRoute(page: PatientSessionView),
     MaterialRoute(page: PatientHistoryView),
     MaterialRoute(page: PatientEditView),
+    MaterialRoute(page: BleScanView),
+    MaterialRoute(page: WifiScanView),
+    MaterialRoute(page: WifiCredentialsView),
 // @stacked-route
   ],
   dependencies: [
@@ -99,6 +106,7 @@ import 'package:vital_step/ui/views/patient_edit/patient_edit_view.dart';
     LazySingleton(classType: ConnectionManagerService),
     LazySingleton(classType: ModeService),
     LazySingleton(classType: PatientService),
+    LazySingleton(classType: BleProvisioningService),
 // @stacked-service
   ],
   bottomsheets: [

@@ -23,6 +23,7 @@ import '../services/mode_service.dart';
 import '../services/notifications_service.dart';
 import '../services/patient_service.dart';
 import '../services/specialist_service.dart';
+import '../services/ble_provisioning_service.dart';
 
 final locator = StackedLocator.instance;
 
@@ -50,4 +51,5 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => ConnectionManagerService());
   locator.registerLazySingleton(() => ModeService());
   locator.registerLazySingleton(() => PatientService());
+  locator.registerLazySingleton(() => BleProvisioningService());
 }

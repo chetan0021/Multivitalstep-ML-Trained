@@ -80,7 +80,7 @@ class AiService {
   static const String _groqUrl =
       'https://api.groq.com/openai/v1/chat/completions';
   static const String _groqApiKey =
-      'YOUR_GROQ_API_KEY';
+      'YOUR_GROQ_API_KEY_HERE'; // TODO: Replace with actual key or load from env
   static const String _groqModel = 'llama-3.3-70b-versatile';
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -584,4 +584,5 @@ class AiService {
     return weight / (h * h);
   }
 }
+
 
