@@ -1,0 +1,27 @@
+{
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.dart": "${capture}.mobile.dart, ${capture}.tablet.dart, ${capture}.desktop.dart, ${capture}.form.dart, ${capture}.g.dart, ${capture}.freezed.dart, ${capture}.logger.dart, ${capture}.locator.dart, ${capture}.router.dart, ${capture}.dialogs.dart, ${capture}.bottomsheets.dart"
+    },
+    "cSpell.words": [
+        "resetpassword"
+    ],
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        "**/*.freezed.dart": true,
+        "**/*.g.dart": true,
+        "**/*.gitkeep": true
+    },
+    "explorerExclude.backup": {}
+}
