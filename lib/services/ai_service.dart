@@ -79,8 +79,8 @@ class AiService {
   static const String _mlBaseUrl = 'https://vitalstep.onrender.com/api/v1/ml';
   static const String _groqUrl =
       'https://api.groq.com/openai/v1/chat/completions';
-  static const String _groqApiKey = String.fromEnvironment('GROQ_API_KEY',
-      defaultValue: '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');
+  static const String _groqApiKey =
+      String.fromEnvironment('GROQ_API_KEY', defaultValue: '');
   static const String _groqModel = 'llama-3.3-70b-versatile';
 
   // ─────────────────────────────────────────────────────────────────────────
